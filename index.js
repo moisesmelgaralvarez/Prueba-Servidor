@@ -26,7 +26,7 @@ const servidor = http.createServer((req, res) => {
     <title>Hola Desde Servidor</title>
     <style>
         body {font-family: Arial; text-align: center; margin-top: 80px; background: #f4f4f9;}
-        h1 {color: #7c4dff;}
+        h1 {color: #28a745;}
     </style>
 </head>
 <body>
