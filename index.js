@@ -3,18 +3,20 @@ const http = require('http');
 const servidor = http.createServer((req, res) => {
     res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
 
-    // Información del servidor (igual que en PHP)
-    const fecha = new Date().toLocaleString('es-MX', {
+    // === HORA DE HONDURAS (UTC-6) ===
+    const ahora = new Date().toLocaleString('es-HN', {
+        timeZone: 'America/Tegucigalpa',
         day: '2-digit',
         month: '2-digit',
         year: 'numeric',
         hour: '2-digit',
         minute: '2-digit',
-        second: '2-digit'
+        second: '2-digit',
+        hour12: false
     });
-    const version = process.version; // Versión de Node.js
 
-    // HTML idéntico al tuyo de PHP
+    const version = process.version;
+
     const html = `
 <!DOCTYPE html>
 <html lang="es">
@@ -23,22 +25,15 @@ const servidor = http.createServer((req, res) => {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hola Desde Servidor</title>
     <style>
-        body {
-            font-family: Arial;
-            text-align: center;
-            margin-top: 80px;
-            background: #f4f4f9;
-        }
-        h1 {
-            color: #7c4dff;
-        }
+        body {font-family: Arial; text-align: center; margin-top: 80px; background: #f4f4f9;}
+        h1 {color: #7c4dff;}
     </style>
 </head>
 <body>
     <h1>¡Hola Mundo desde Node.js!</h1>
     <p>Mostrando contenido desde el Servidor.</p>
     <p>Versión de Node.js: <strong>${version}</strong></p>
-    <p>Fecha y hora del servidor: <strong>${fecha}</strong></p>
+    <p>Fecha y hora de Honduras: <strong>${ahora}</strong></p>
     <p>Creado por: <strong>Moisés Armando Melgar Álvarez</strong></p>
     <hr>
     <small>Dios les bendiga a todos</small>
@@ -49,9 +44,7 @@ const servidor = http.createServer((req, res) => {
     res.end(html);
 });
 
-// Puerto correcto para Render (y cualquier hosting)
 const PORT = process.env.PORT || 10000;
-
 servidor.listen(PORT, () => {
-    console.log(`Servidor Node.js corriendo en puerto ${PORT}`);
+    console.log(`Servidor corriendo en puerto ${PORT}`);
 });
