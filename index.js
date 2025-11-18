@@ -8,23 +8,35 @@ const servidor = http.createServer((req, res) => {
     res.end(`
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hola Mundo - Node.js</title>
+    <title>Hola Desde Servidor</title>
     <style>
-        body {font-family: Arial, sans-serif; text-align: center; margin-top: 100px; background: #f0f2f5;}
-        h1 {color: #28a745; font-size: 3em;}
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 80px;
+            background: #f4f4f9;
+        }
+
+        h1 {
+            color: #7c4dff;
+        }
     </style>
 </head>
+
 <body>
-    <h1>¡Hola Mundo desde Node.js!</h1>
-    <p>Este contenido se generó 100% en el servidor</p>
-    <p>Versión de Node.js: <strong>${process.version}</strong></p>
-    <p>Fecha y hora del servidor: <strong>${ahora}</strong></p>
+    <h1>¡Hola Mundo desde PHP!</h1>
+    <p>Mostrando contenido desde el Servidor.</p>
+    <p>Versión de PHP: <strong><?= $version ?></strong></p>
+    <p>Fecha y hora del servidor: <strong><?= $fecha ?></strong></p>
+    <p>Creado por: <strong> Moises Armando Melgar Alvarez</strong></p>
     <hr>
-    <small>Ejemplo para el foro de programación web - Moisés</small>
+    <small>Dios les bendiga a todos</small>
 </body>
+
 </html>
     `);
 });
